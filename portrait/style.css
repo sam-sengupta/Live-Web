@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+}
+img {
+    padding-top: 8%;
+    width:25%;
+    height:25%;
+}
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(236, 183, 241);
+    font-size: 15px;
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: rgba(236, 183, 241, 0);
+    padding: 2px;
+}
+button:hover {
+    background-color: rgba(255, 255, 255, 0.397);
+}
+.b1 {
+    position:fixed;
+    bottom:70%;
+    left:57%;
+}
+.b2 {
+    position:fixed;
+    bottom:60%;
+    left:40%;
+}
+.b3 {
+    position:fixed;
+    bottom:30%;
+    left:40%;
+}
+.b4 {
+    position:fixed;
+    bottom:40%;
+    left:50%;
+}
+.b5 {
+    position:fixed;
+    bottom:20%;
+    left:55%;
+}
