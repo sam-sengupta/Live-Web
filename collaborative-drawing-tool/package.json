@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sam-sengupta/advancedCreativeCoding/tree/main/homework_07"
+    "url": "git+https://github.com/sam-sengupta/Live-Web/tree/main/collaborative-drawing-tool"
   },
   "keywords": [
     "drawing",
@@ -18,9 +18,9 @@
   "author": "Sam Sengupta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sam-sengupta/advancedCreativeCoding/tree/main/homework_07/issues"
+    "url": "https://github.com/sam-sengupta/Live-Web/tree/main/collaborative-drawing-tool/issues"
   },
-  "homepage": "https://github.com/sam-sengupta/advancedCreativeCoding/tree/main/homework_07#readme",
+  "homepage": "https://github.com/sam-sengupta/Live-Web/tree/main/collaborative-drawing-tool#readme",
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "^4.0.0"
