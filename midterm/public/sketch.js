@@ -54,6 +54,7 @@ function newDrawing(data){
     fill(random(0), random(0), random(255));
     ellipse(data.x, data.y, data.size);
   }
+  console.log(data.x, data.y, data.size)
 }
 
 function draw() {
