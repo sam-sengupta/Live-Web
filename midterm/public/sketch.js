@@ -1,15 +1,37 @@
 var capture;
 var canvas;
-var socket;
+var socket = io.connect("http://localhost:3000");
 var rbutton, gbutton, bbutton;
 var colorNum;
 var slider;
-function setup() {
-  canvas = createCanvas(450, 350);
-  socket = io.connect("http://localhost:3000");
-  background(0);
 
-  socket.on('pattern', newDrawing);
+// 4th Step
+socket.on('pattern', function(data) {
+  debugger
+  // New Drawing
+    if(data.colorNum == 1) {
+      noStroke(); 
+      fill(random(255), random(0), random(0));
+      ellipse(data.x, data.y, data.size);
+    }
+    else if(data.colorNum == 2) {
+      noStroke(); 
+      fill(random(0), random(255), random(0));
+      ellipse(data.x, data.y, data.size);
+    }
+    else if(data.colorNum == 3) {
+      noStroke(); 
+      fill(random(0), random(0), random(255));
+      ellipse(data.x, data.y, data.size);
+    }
+    console.log(data.x)
+});
+
+function setup() {
+  debugger;
+  canvas = createCanvas(450, 350);
+  // background(0);
+
 
   capture = createCapture(VIDEO);
   capture.hide();
@@ -38,40 +60,30 @@ function colB(){
   colorNum = 3;
 }
   
-function newDrawing(data){
-  if(colorNum == 1) {
-    noStroke(); 
-    fill(random(255), random(0), random(0));
-    ellipse(data.x, data.y, data.size);
-  }
-  else if(colorNum == 2) {
-    noStroke(); 
-    fill(random(0), random(255), random(0));
-    ellipse(data.x, data.y, data.size);
-  }
-  else if(colorNum == 3) {
-    noStroke(); 
-    fill(random(0), random(0), random(255));
-    ellipse(data.x, data.y, data.size);
-  }
-  console.log(data.x, data.y, data.size)
-}
 
 function draw() {
-  image(capture, 0, 0, canvas.width, width);
-  filter(THRESHOLD, 0.4);
+  // Drawing the Image
+  // image(capture, 0, 0, canvas.width, width);
+  // filter(THRESHOLD, 0.4);
+  // socket.on('pattern', newDrawing);
+
 }
 
 function mouseDragged(){
+  debugger
   var data = {
     x: mouseX,
     y: mouseY,
+    colorNum: 1,
     size: slider.value()
   };
+
+  // 1 - Emit to Server
   socket.emit('pattern', data);
 }
   
 function keyPressed() {
+  debugger
   if (keyCode === ENTER) {
     console.log(canvas.elt.toDataURL());
     document.body.style.backgroundImage = "url(" + canvas.elt.toDataURL() + ")";
